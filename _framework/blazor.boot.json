@@ -1,7 +1,7 @@
 {
   "entryAssembly": "Weather",
   "resources": {
-    "hash": "sha256-vcCz+PlyTwcR1d9efAP5oXYheXnSkOBdaMDzoFISja4=",
+    "hash": "sha256-9HzrFkuKWTO3ZkO0WYxQCCP2yp9nusACp2SfFSdX/1o=",
     "runtime": {
       "dotnet.7.0.16.kns5mql5af.js": "sha256-F8lwjaVPMjAYJ0euy2kZ7fRuh2vr0eT6miTFbzMhalQ=",
       "dotnet.timezones.blat": "sha256-rwyJqJu36keQwNmm/O1XV7tnkkVldIOK8GIjn4gTUt4=",
@@ -76,7 +76,7 @@
       "System.Xml.ReaderWriter.dll": "sha256-yUVpRWFjVzadOG+Iso7e/Cd3+L1DVamnHG40C0+32KA=",
       "System.Xml.XDocument.dll": "sha256-7oYZgfSDm99dVCC4cR6NrauPvCS43I1amjmKe3rsEkk=",
       "System.Xml.XmlSerializer.dll": "sha256-LRWj9CwahmDSJYYJxD092gnF5xSFwg08tFqKCXFASVQ=",
-      "Weather.dll": "sha256-Gan0yLSjbvP8hr0l1liVhtS9uo/Z8mT6muLUlEqtfPw="
+      "Weather.dll": "sha256-a2q9A6T7Pol7z+UyB4Cq3uYe6lBAfjlw5EwyIo7Lvfc="
     },
     "runtimeAssets": {
       "dotnet.wasm": {
