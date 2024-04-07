@@ -1,0 +1,372 @@
+﻿body, html{
+    padding:0;
+    margin:0;
+}
+.header{
+    width:100%;
+    z-index:110;
+}
+
+.main-weather {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    z-index:300;
+    border: none;
+    border-radius: 0 0 10px 10px;
+    color: white;
+    padding-bottom: 15px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.weather-title {
+    position: absolute;
+    display: none;
+    top: 15px;
+    left: 30px;
+    font-size: 30px;
+    font-family: sans-serif;
+}
+
+.wt-input-field {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    flex-direction: column; /* Arrange children in a column */
+    position: relative; /* Position relative for absolute positioning of dropdown */
+}
+
+.input-field-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.weather-input {
+    background: none;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 15px;
+    color: white;
+    max-width: 350px; /* Limit maximum width */
+    width: 100%; /* Take up available width */
+    font-size: 16px;
+}
+
+    .weather-input::placeholder {
+        color: white;
+        opacity: 0.4;
+    }
+
+    .weather-input:focus {
+        outline: none;
+    }
+
+.search-dropdown {
+    position: absolute;
+    top: calc(100%); /* Position dropdown directly below input */
+    left: 50%; /* Position dropdown in the center */
+    transform: translateX(-50%); /* Adjust for centering */
+    background-color: white;
+    display: none; /* Initially hide dropdown */
+    color: black;
+    flex-direction: column;
+    width:300px;
+    font-size: 17px;
+    font-family: sans-serif;
+    border-radius: 5px; /* Add border radius */
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5); /* Add box shadow */
+    z-index: 101; /* Ensure dropdown is on top */
+}
+
+.search-result {
+    height: 50px;
+    border-bottom: 1px solid grey;
+    display: flex;
+    align-items: center;
+    padding: 0 10px; /* Add padding to each result item */
+}
+
+    .search-result span {
+        margin-left: 10px;
+    }
+
+.weather-hours {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    overflow-x: hidden;
+}
+
+.weather-hour {
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    text-align: center;
+    min-width: 65px;
+    border: none;
+    border-radius: 10px 10px;
+    background-color: dodgerblue;
+    font-family: sans-serif;
+    font-size: 13px;
+}
+
+.city-name {
+    font-size: 45px;
+    font-family: sans-serif;
+    margin-bottom: -10px;
+    z-index:100;
+}
+
+.temp-value {
+    margin-bottom: 10px;
+    display: flex;
+    font-size: 30px;
+    font-family: sans-serif;
+    flex-direction: column;
+    align-items: center;
+    z-index:100;
+}
+
+.weather-hour-block {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    z-index: 100;
+}
+
+.hour-data {
+    margin-top: 3px;
+    margin-bottom: 4px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.hour-time {
+    height: 100%;
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.hour-img {
+    margin-top: -6px;
+}
+.hour-img img{
+    width:50px;
+    height:50px;
+}
+.background-image {
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    left: 0;
+    width: 200%; /* Adjust based on the size of your background */
+    height: 100%; /* Ensure the background covers the entire container */
+    background-size: cover;
+    animation: slide 300s linear infinite; /* Adjust duration as needed */
+    z-index: 90;
+}
+
+.hour-wind {
+    font-size: 12px;
+}
+.weather-info {
+    z-index:300;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+    gap: 30px;
+    width: 100%;
+}
+
+
+.info-item {
+    background-color: #c1c1c1;
+    border: none;
+    position: relative;
+    border-radius: 20px;
+    height: 300px;
+    min-width: 300px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.humidity-circle {
+    position: relative;
+    margin-top: -30px;
+}
+
+.humidity-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Ensure it's above the SVG */
+    font-size: 50px;
+    font-family: sans-serif;
+    color: #004581;
+}
+.info-item-title {
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 40px;
+    font-family: sans-serif;
+}
+.info-item-data {
+    display: flex;
+    z-index: 100;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.info-item-param {
+    padding-top: 10px;
+    padding-right: 10px;
+    font-size: 25px;
+    font-family: sans-serif;
+}
+
+.info-item-bar {
+    position: absolute;
+    top: 0%;
+    overflow: hidden;
+    width: 100%; /* Set the width of the div */
+    max-width: 300px; /* Optional: Set maximum width for the div */
+    height: auto; /* Allow the height to adjust based on the content */
+}
+
+    .info-item-bar svg {
+        width: 100%; /* Make the SVG responsive to its parent's width */
+        height: auto; /* Allow the height to adjust based on the width */
+    }
+.item-bar {
+    position: relative;
+}
+
+.wind-info {
+    display: flex;
+    padding-right:15px;
+   
+}
+.wind-direction {
+    font-size:30px;
+    color: white;
+    padding-top: 5px;
+}
+.windspeed-arrow {
+    width: 170px;
+    height: 5px;
+    background-color: #0c7bff;
+    position: absolute;
+    border-radius: 20px;
+    bottom: 10%;
+    right: 10%;
+    transition: 1s cubic-bezier(0, 0, 0.62, 1.03);
+    transform-origin: bottom right;
+}
+.uv-sun {
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.uv-img{
+    animation: sun-rotation 1s ease-out;
+}
+.pressure-value{
+    transform:translate(-50%, -50%);
+    position:absolute;
+    top: 60%;
+    left:50%;
+    font-size: 50px;
+    font-family:sans-serif;
+    color:white;
+}
+
+@keyframes sun-rotation{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+@media (min-width: 450px) {
+    .weather-hour{
+        min-width:80px;
+        height:150px;
+        font-size:14px;
+    }
+    .hour-wind {
+        font-size: 14px;
+        margin-top: 3px;
+    }
+    .hour-img img{
+        width:60px;
+        height:60px;
+    }
+    .search-dropdown{
+        width:350px;
+    }
+}
+@media (min-width: 800px){
+    .weather-hour {
+        min-width: 90px;
+        height: 170px;
+        font-size: 15px;
+    }
+    .search-dropdown {
+        width: 350px;
+    }
+    .hour-wind {
+        font-size: 15px;
+        margin-top: 3px;
+    }
+    .hour-img{
+        margin-top:0px;
+        margin-bottom:10px;
+    }
+    .hour-img img {
+        width: 64px;
+        height: 64px;
+    }
+    .weather-title{
+        display:block;
+    }
+    .weather-hour-block{
+        width:80%;
+    }
+    
+}
+
+
+    /*
+
+
+*/
+    @keyframes slide {
+        0% {
+            transform: translateX(0);
+        }
+
+        50% {
+            transform: translateX(-50%);
+        }
+
+        100% {
+            transform: translateX(0); /* Adjust based on the width of your background */
+        }
+    }
