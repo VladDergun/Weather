@@ -31,7 +31,9 @@ function scrollRight() {
         behavior: 'smooth'
     });
 }
+function rotateLine() {
 
+}
 leftScrollButton.addEventListener("click", scrollLeft);
 rightScrollButton.addEventListener("click", scrollRight);
 

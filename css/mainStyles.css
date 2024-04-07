@@ -4,6 +4,7 @@
 }
 .header{
     width:100%;
+    z-index:110;
 }
 
 .main-weather {
@@ -13,6 +14,7 @@
     height: 400px;
     position: relative;
     overflow: hidden;
+    z-index:300;
     border: none;
     border-radius: 0 0 10px 10px;
     color: white;
@@ -79,7 +81,7 @@
     font-family: sans-serif;
     border-radius: 5px; /* Add border radius */
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5); /* Add box shadow */
-    z-index: 1; /* Ensure dropdown is on top */
+    z-index: 101; /* Ensure dropdown is on top */
 }
 
 .search-result {
@@ -118,6 +120,7 @@
     font-size: 45px;
     font-family: sans-serif;
     margin-bottom: -10px;
+    z-index:100;
 }
 
 .temp-value {
@@ -127,12 +130,14 @@
     font-family: sans-serif;
     flex-direction: column;
     align-items: center;
+    z-index:100;
 }
 
 .weather-hour-block {
     display: flex;
     align-items: center;
     width: 90%;
+    z-index: 100;
 }
 
 .hour-data {
@@ -167,13 +172,14 @@
     height: 100%; /* Ensure the background covers the entire container */
     background-size: cover;
     animation: slide 300s linear infinite; /* Adjust duration as needed */
-    z-index: -3;
+    z-index: 90;
 }
 
 .hour-wind {
     font-size: 12px;
 }
 .weather-info {
+    z-index:300;
     margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
@@ -279,6 +285,16 @@
 .uv-img{
     animation: sun-rotation 1s ease-out;
 }
+.pressure-value{
+    transform:translate(-50%, -50%);
+    position:absolute;
+    top: 60%;
+    left:50%;
+    font-size: 50px;
+    font-family:sans-serif;
+    color:white;
+}
+
 @keyframes sun-rotation{
     from{
         transform: rotate(0deg);
