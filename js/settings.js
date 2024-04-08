@@ -37,4 +37,29 @@ function rotateLine() {
 leftScrollButton.addEventListener("click", scrollLeft);
 rightScrollButton.addEventListener("click", scrollRight);
 
+let isGrabbed = false;
+let grabStartX = 0;
+let scrollLeftStart = 0;
 
+const itemContainer = scrollableArea;
+
+itemContainer.addEventListener('mousedown', (e) => {
+    isGrabbed = true;
+    grabStartX = e.pageX - itemContainer.offsetLeft;
+    scrollLeftStart = itemContainer.scrollLeft;
+});
+
+itemContainer.addEventListener('mouseleave', () => {
+    isGrabbed = false;
+});
+
+itemContainer.addEventListener('mouseup', () => {
+    isGrabbed = false;
+});
+
+itemContainer.addEventListener('mousemove', (e) => {
+    if (!isGrabbed) return;
+    const mouseX = e.pageX - itemContainer.offsetLeft;
+    const scrollX = mouseX - grabStartX;
+    itemContainer.scrollLeft = scrollLeftStart - scrollX;
+});
