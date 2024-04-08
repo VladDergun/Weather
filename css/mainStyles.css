@@ -345,6 +345,11 @@ footer {
     }
    
 }
+@media only screen and (min-width:600px) {
+    .scroll-arrow {
+        display: block;
+    }
+}
 @media(max-width:600px){
     .scroll-arrow{
         display:none;
@@ -394,7 +399,6 @@ footer {
         50% {
             transform: translateX(-50%);
         }
-https://cdn.weatherapi.com/weather/64x64/day/113.png
         100% {
             transform: translateX(0); /* Adjust based on the width of your background */
         }
