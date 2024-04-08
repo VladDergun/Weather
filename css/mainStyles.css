@@ -345,7 +345,11 @@ footer {
     }
    
 }
-
+@media(max-width:600px){
+    .scroll-arrow{
+        display:none;
+    }
+}
 @media (min-width: 800px){
     .weather-hour {
         min-width: 90px;
