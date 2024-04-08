@@ -20,14 +20,14 @@ scrollableArea.addEventListener('scroll', function () {
 
 function scrollLeft() {
     scrollableArea.scrollBy({
-        left: -200,
+        left: -215,
         behavior: 'smooth'
     });
 }
 
 function scrollRight() {
     scrollableArea.scrollBy({
-        left: 200,
+        left: 215,
         behavior: 'smooth'
     });
 }
@@ -43,23 +43,49 @@ let scrollLeftStart = 0;
 
 const itemContainer = scrollableArea;
 
-itemContainer.addEventListener('mousedown', (e) => {
+// Mouse event listeners
+itemContainer.addEventListener('mousedown', handleGrabStart);
+itemContainer.addEventListener('mouseleave', handleGrabEnd);
+itemContainer.addEventListener('mouseup', handleGrabEnd);
+itemContainer.addEventListener('mousemove', handleGrabMove);
+
+// Touch event listeners
+itemContainer.addEventListener('touchstart', handleTouchStart);
+itemContainer.addEventListener('touchend', handleTouchEnd);
+itemContainer.addEventListener('touchmove', handleTouchMove);
+
+function handleGrabStart(e) {
     isGrabbed = true;
     grabStartX = e.pageX - itemContainer.offsetLeft;
     scrollLeftStart = itemContainer.scrollLeft;
-});
+}
 
-itemContainer.addEventListener('mouseleave', () => {
+function handleGrabEnd() {
     isGrabbed = false;
-});
+}
 
-itemContainer.addEventListener('mouseup', () => {
-    isGrabbed = false;
-});
-
-itemContainer.addEventListener('mousemove', (e) => {
+function handleGrabMove(e) {
     if (!isGrabbed) return;
     const mouseX = e.pageX - itemContainer.offsetLeft;
     const scrollX = mouseX - grabStartX;
     itemContainer.scrollLeft = scrollLeftStart - scrollX;
-});
+}
+
+function handleTouchStart(e) {
+    const touch = e.touches[0];
+    isGrabbed = true;
+    grabStartX = touch.pageX - itemContainer.offsetLeft;
+    scrollLeftStart = itemContainer.scrollLeft;
+}
+
+function handleTouchEnd() {
+    isGrabbed = false;
+}
+
+function handleTouchMove(e) {
+    if (!isGrabbed || e.touches.length !== 1) return;
+    const touch = e.touches[0];
+    const touchX = touch.pageX - itemContainer.offsetLeft;
+    const scrollX = touchX - grabStartX;
+    itemContainer.scrollLeft = scrollLeftStart - scrollX;
+}
